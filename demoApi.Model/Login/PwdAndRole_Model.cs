@@ -7,6 +7,10 @@ namespace demoApi.Model.Login
     public class PwdAndRole_Model
     {
         /// <summary>
+        /// 用户Id
+        /// </summary>
+        public string UserId { get; set; }
+        /// <summary>
         /// 密码
         /// </summary>
         public string Password { get; set; }

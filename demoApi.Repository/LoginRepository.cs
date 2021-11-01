@@ -27,7 +27,7 @@ namespace demoApi.Repository
         {
             using (IDbConnection connection = new SqlConnection(connStr))
             {
-                var model = await connection.QueryFirstOrDefaultAsync<PwdAndRole_Model>($"select Password,is_admin from [User] where Name ='{username}' and status=1");
+                var model = await connection.QueryFirstOrDefaultAsync<PwdAndRole_Model>($"select ID,Password,is_admin from [User] where Name ='{username}' and status=1");
                 if (model == null)
                 {
                     return new PwdAndRole_Model
@@ -42,6 +42,7 @@ namespace demoApi.Repository
                     {
                         var roleName = await connection.QueryFirstOrDefaultAsync<string>($"select c.Name from (User_Role as a inner join [User] as b on a.Uid=b.ID) right join[Role] as c on a.role_id=c.id where a.status=1 and b.Name='{username}'");
                         model.RoleName = roleName;
+
                     }
                     else
                     {

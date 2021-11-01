@@ -16,7 +16,7 @@ namespace demoApi.Controllers
     [AllowAnonymous]
     [Route("api/Login")]
     [ApiController]
-    
+
     public class LoginController : ControllerBase
     {
         private readonly UnityOfServices _unityOfServices;
@@ -56,6 +56,7 @@ namespace demoApi.Controllers
                         response = new TokenModel
                         {
                             Token = token,
+                            UserId = pwdAndRole_Model.UserId
                         }
                     };
                 }
@@ -76,7 +77,7 @@ namespace demoApi.Controllers
             }
 
         }
-       
+
         /// <summary>
         /// 获取菜单
         /// </summary>
@@ -96,7 +97,7 @@ namespace demoApi.Controllers
         }
 
 
-        public  class TokenModel
+        public class TokenModel
         {
             public string Token { get; set; }
             public string UserId { get; set; }
