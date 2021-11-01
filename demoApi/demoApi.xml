@@ -1,0 +1,515 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>demoApi</name>
+    </assembly>
+    <members>
+        <member name="T:demoApi.Controllers.LoginController">
+            <summary>
+            登陆模块
+            </summary>
+        </member>
+        <member name="M:demoApi.Controllers.LoginController.LoginAsync(demoApi.Model.Login.Login_Model)">
+            <summary>
+            登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:demoApi.Controllers.LoginController.GetMenus">
+            <summary>
+            获取菜单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:demoApi.Controllers.RightsController">
+            <summary>
+            权限模块
+            </summary>
+        </member>
+        <member name="M:demoApi.Controllers.RightsController.GetRightsList">
+            <summary>
+            获取权限列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:demoApi.Controllers.RightsController.AddNewRights(System.Object)">
+            <summary>
+            添加新权限
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:demoApi.Controllers.RightsController.GetRolesList">
+            <summary>
+            获取角色列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:demoApi.Controllers.RightsController.EditRoleName(System.Int32,System.String)">
+            <summary>
+            编辑角色名字
+            </summary>
+            <param name="roleid"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:demoApi.Controllers.RightsController.GetRightsTree">
+            <summary>
+            获取权限树
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:demoApi.Controllers.RightsController.GiveRights(System.Int32,System.String)">
+            <summary>
+            分配权限
+            </summary>
+            <param name="roleid"></param>
+            <param name="permissionid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:demoApi.Controllers.RightsController.AddNewRole(System.String)">
+            <summary>
+            添加新角色 默认无权限 进行配置
+            </summary>
+            <param name="name">角色名</param>
+            <returns></returns>
+        </member>
+        <member name="M:demoApi.Controllers.RightsController.DeleteRole(System.Int32)">
+            <summary>
+            删除角色
+            </summary>
+            <param name="roleID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:demoApi.Controllers.RightsController.CheckPermission(demoApi.Controllers.RightsController.permissionModel)">
+            <summary>
+            检验三级权限
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:demoApi.Controllers.ToolsController">
+            <summary>
+            简单的导入导出Excel Npoi.Mapper 复杂的用EPPlus.Core
+            </summary>
+        </member>
+        <member name="M:demoApi.Controllers.ToolsController.ImportExcel(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Excel导入
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:demoApi.Controllers.ToolsController.ExportExcel">
+            <summary>
+            Excel导出
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:demoApi.Controllers.UserController">
+            <summary>
+            用户管理
+            </summary>
+        </member>
+        <member name="M:demoApi.Controllers.UserController.GetUserList(System.String,System.Int32,System.Int32)">
+            <summary>
+            获取用户信息
+            </summary>
+            <param name="query"></param>
+            <param name="pagenum"></param>
+            <param name="pagesize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:demoApi.Controllers.UserController.ChangeStatus(System.Int32,System.String)">
+            <summary>
+            改变用户状态
+            </summary>
+            <param name="userid"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:demoApi.Controllers.UserController.AddUser(demoApi.Model.User.AddUser_Model)">
+            <summary>
+            添加用户
+            </summary>
+            <param name="user_Model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:demoApi.Controllers.UserController.EditUser(demoApi.Model.User.EditUser_Model)">
+            <summary>
+            编辑用户信息
+            </summary>
+            <param name="editUser_Model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:demoApi.Controllers.UserController.DeleteUser(System.Int32)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="roleid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:demoApi.Controllers.UserController.GetRoleList">
+            <summary>
+            获取角色列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:demoApi.Controllers.UserController.GiveRole(demoApi.Model.User.GiveRole_Model)">
+            <summary>
+            分配角色
+            </summary>
+            <param name="role_Model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:demoApi.Filter.GlobalExceptionFilter.GlobalExceptionsFilter">
+            <summary>
+            全局异常错误日志
+            </summary>
+        </member>
+        <member name="M:demoApi.Filter.GlobalExceptionFilter.GlobalExceptionsFilter.WriteLog(System.String,System.Exception)">
+            <summary>
+            自定义返回格式
+            </summary>
+            <param name="throwMsg"></param>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="P:demoApi.Filter.GlobalExceptionFilter.JsonErrorResponse.Message">
+            <summary>
+            生产环境的消息
+            </summary>
+        </member>
+        <member name="P:demoApi.Filter.GlobalExceptionFilter.JsonErrorResponse.DevelopmentMessage">
+            <summary>
+            开发环境的消息
+            </summary>
+        </member>
+        <member name="T:demoApi.Log.ILoggerHelper">
+            <summary>
+            日志接口
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:demoApi.Log.ILoggerHelper.Debug(System.Object,System.String)" -->
+        <member name="M:demoApi.Log.ILoggerHelper.Debug(System.Object,System.String,System.Object[])">
+            <summary>
+            调试信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="ps">ps</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Debug(System.Type,System.String)">
+            <summary>
+            调试信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Info(System.Object,System.Object)">
+            <summary>
+            关键信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Info(System.Type,System.Object)">
+            <summary>
+            关键信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Warn(System.Object,System.Object)">
+            <summary>
+            警告信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Warn(System.Type,System.Object)">
+            <summary>
+            警告信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Error(System.Object,System.Object)">
+            <summary>
+            错误信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Error(System.Type,System.Object)">
+            <summary>
+            错误信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Fatal(System.Object,System.Object)">
+            <summary>
+            失败信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Fatal(System.Type,System.Object)">
+            <summary>
+            失败信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Debug(System.Object,System.Object,System.Exception)">
+            <summary>
+            调试信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Debug(System.Type,System.Object,System.Exception)">
+            <summary>
+            调试信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Info(System.Object,System.Object,System.Exception)">
+            <summary>
+            关键信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Info(System.Type,System.Object,System.Exception)">
+            <summary>
+            关键信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Warn(System.Object,System.Object,System.Exception)">
+            <summary>
+            警告信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Warn(System.Type,System.Object,System.Exception)">
+            <summary>
+            警告信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Error(System.Object,System.Object,System.Exception)">
+            <summary>
+            错误信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Error(System.Type,System.Object,System.Exception)">
+            <summary>
+            错误信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Fatal(System.Object,System.Object,System.Exception)">
+            <summary>
+            失败信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.ILoggerHelper.Fatal(System.Type,System.Object,System.Exception)">
+            <summary>
+            失败信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.GetLogger(System.Type)">
+            <summary>
+            获取记录器
+            </summary>
+            <param name="source">soruce</param>
+            <returns></returns>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Debug(System.Object,System.String)">
+            <summary>
+            调试信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Debug(System.Object,System.String,System.Object[])">
+            <summary>
+            调试信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="ps">ps</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Debug(System.Type,System.String)">
+            <summary>
+            调试信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Info(System.Object,System.Object)">
+            <summary>
+            关键信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Info(System.Type,System.Object)">
+            <summary>
+            关键信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Warn(System.Object,System.Object)">
+            <summary>
+            警告信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Warn(System.Type,System.Object)">
+            <summary>
+            警告信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Error(System.Object,System.Object)">
+            <summary>
+            错误信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Error(System.Type,System.Object)">
+            <summary>
+            错误信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Fatal(System.Object,System.Object)">
+            <summary>
+            失败信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Fatal(System.Type,System.Object)">
+            <summary>
+            失败信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Debug(System.Object,System.Object,System.Exception)">
+            <summary>
+            调试信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Debug(System.Type,System.Object,System.Exception)">
+            <summary>
+            调试信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Info(System.Object,System.Object,System.Exception)">
+            <summary>
+            关键信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Info(System.Type,System.Object,System.Exception)">
+            <summary>
+            关键信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Warn(System.Object,System.Object,System.Exception)">
+            <summary>
+            警告信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Warn(System.Type,System.Object,System.Exception)">
+            <summary>
+            警告信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Error(System.Object,System.Object,System.Exception)">
+            <summary>
+            错误信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Error(System.Type,System.Object,System.Exception)">
+            <summary>
+            错误信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Fatal(System.Object,System.Object,System.Exception)">
+            <summary>
+            失败信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="M:demoApi.Log.LoggerHelper.Fatal(System.Type,System.Object,System.Exception)">
+            <summary>
+            失败信息
+            </summary>
+            <param name="source">source</param>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="P:demoApi.Startup.Repository">
+            <summary>
+            log4net 仓储库
+            </summary>
+        </member>
+    </members>
+</doc>
