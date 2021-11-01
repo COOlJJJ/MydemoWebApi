@@ -110,6 +110,12 @@
             用户管理
             </summary>
         </member>
+        <member name="M:demoApi.Controllers.UserController.GetSingleUserInfo">
+            <summary>
+            获取单个用户信息
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:demoApi.Controllers.UserController.GetUserList(System.String,System.Int32,System.Int32)">
             <summary>
             获取用户信息

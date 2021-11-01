@@ -37,6 +37,13 @@ namespace demoApi.Services
             int result = _unityOfRepository._userRepository.ChangeStatus(userid, status);
             return result;
         }
+
+        public UserInfo_Model GetSingleUserInfo(string userid)
+        {
+            UserInfo_Model result = _unityOfRepository._userRepository.GetSingleUserInfo(userid);
+            return result;
+        }
+
         /// <summary>
         /// 添加用户
         /// </summary>

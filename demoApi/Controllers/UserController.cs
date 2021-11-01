@@ -24,6 +24,40 @@ namespace demoApi.Controllers
             _unityOfServices = unityOfServices;
         }
 
+
+        /// <summary>
+        /// 获取单个用户信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetSingleUserInfo")]
+        public MessageModel<UserInfo_Model> GetSingleUserInfo()
+        {
+            string token = HttpContext.Request.Headers["Authorization"].ToString().Split(' ')[1];
+            string userid = JwtHelper.SerializeJwt(token).ID;
+            UserInfo_Model result = _unityOfServices._userServices.GetSingleUserInfo(userid);
+            if (result != null)
+            {
+                return new MessageModel<UserInfo_Model>
+                {
+                    msg = "获取成功",
+                    status = 200,
+                    response = result
+                };
+            }
+            else
+            {
+                return new MessageModel<UserInfo_Model>
+                {
+                    msg = "获取失败",
+                    status = 201,
+                    response = null
+                };
+            }
+
+        }
+
+
         /// <summary>
         /// 获取用户信息
         /// </summary>
@@ -47,7 +81,7 @@ namespace demoApi.Controllers
                 }
             };
         }
-       
+
         /// <summary>
         /// 改变用户状态
         /// </summary>
@@ -78,7 +112,7 @@ namespace demoApi.Controllers
                 };
             }
         }
-      
+
         /// <summary>
         /// 添加用户
         /// </summary>
@@ -109,7 +143,7 @@ namespace demoApi.Controllers
                 };
             }
         }
-       
+
         /// <summary>
         /// 编辑用户信息
         /// </summary>
@@ -139,7 +173,7 @@ namespace demoApi.Controllers
                 };
             }
         }
-       
+
         /// <summary>
         /// 删除用户
         /// </summary>
@@ -170,7 +204,7 @@ namespace demoApi.Controllers
             }
 
         }
-       
+
         /// <summary>
         /// 获取角色列表
         /// </summary>
@@ -187,7 +221,7 @@ namespace demoApi.Controllers
                 response = roleList_s
             };
         }
-        
+
         /// <summary>
         /// 分配角色
         /// </summary>

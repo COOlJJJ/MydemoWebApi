@@ -46,7 +46,8 @@ namespace demoApi.Controllers
 
                     string token = JwtHelper.IssueJwt(new TokenModelJwt
                     {
-                        Role = pwdAndRole_Model.RoleName
+                        Role = pwdAndRole_Model.RoleName,
+                        ID = pwdAndRole_Model.ID
                     });
 
                     return new MessageModel<TokenModel>
@@ -56,7 +57,7 @@ namespace demoApi.Controllers
                         response = new TokenModel
                         {
                             Token = token,
-                            UserId = pwdAndRole_Model.UserId
+                            UserId = pwdAndRole_Model.ID
                         }
                     };
                 }

@@ -9,7 +9,7 @@ namespace demoApi.Model.Login
         /// <summary>
         /// 用户Id
         /// </summary>
-        public string UserId { get; set; }
+        public string ID { get; set; }
         /// <summary>
         /// 密码
         /// </summary>

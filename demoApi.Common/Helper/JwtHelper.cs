@@ -29,6 +29,7 @@ namespace demoApi.Common.Helper
                 new Claim(JwtRegisteredClaimNames.Iss,iss),
                 new Claim(JwtRegisteredClaimNames.Aud,aud),
                 new Claim(ClaimTypes.Role,tokenModel.Role),//为了解决一个用户多个角色(比如：Admin,System)，用下边的方法
+                new Claim(ClaimTypes.Name,tokenModel.ID),//用户Id
                };
 
 
@@ -58,9 +59,11 @@ namespace demoApi.Common.Helper
             var jwtHandler = new JwtSecurityTokenHandler();
             JwtSecurityToken jwtToken = jwtHandler.ReadJwtToken(jwtStr);
             object role;
+            object id;
             try
             {
                 jwtToken.Payload.TryGetValue(ClaimTypes.Role, out role);
+                jwtToken.Payload.TryGetValue(ClaimTypes.Name, out id);
             }
             catch (Exception e)
             {
@@ -71,6 +74,7 @@ namespace demoApi.Common.Helper
             {
 
                 Role = role != null ? role.ObjToString() : "",
+                ID = id != null ? id.ObjToString() : ""
             };
             return tm;
         }
@@ -86,5 +90,9 @@ namespace demoApi.Common.Helper
         /// </summary>
         public string Role { get; set; }
 
+        /// <summary>
+        /// ID
+        /// </summary>
+        public string ID { get; set; }
     }
 }

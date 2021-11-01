@@ -36,6 +36,7 @@ namespace demoApi.Services
                 return new PwdAndRole_Model
                 {
                     RoleName = pwdAndRole_Model.RoleName,
+                    ID = pwdAndRole_Model.ID,
                     Message = "登录成功"
                 };
             }

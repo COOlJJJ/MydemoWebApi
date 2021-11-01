@@ -44,6 +44,36 @@ namespace demoApi.Repository
             }
         }
         /// <summary>
+        /// 根据用户ID获取用户信息
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns></returns>
+        public UserInfo_Model GetSingleUserInfo(string userid)
+        {
+
+            using (IDbConnection connection = new SqlConnection(connStr))
+            {
+                string strSql = string.Format($"select ID, Name, is_admin,email, mobile_phone from [User] where ID={userid}");
+                UserInfo_Model user = connection.Query<UserInfo_Model>(strSql).FirstOrDefault();
+                if (user == null)
+                {
+                    return null;
+                }
+                if (user.is_admin.Equals(1))
+                {
+                    user.role = "admin";
+                }
+                else
+                {
+                    var role = connection.Query<string>($@"select a.Name  from [Role] as a inner join 
+                                                    [User_Role] as b on b.role_id=a.Id where b.Uid={user.ID}").FirstOrDefault();
+                    user.role = role;
+                }
+                return user;
+            }
+        }
+
+        /// <summary>
         /// 编辑用户信息
         /// </summary>
         /// <param name="editUser_Model"></param>
