@@ -92,5 +92,10 @@ namespace demoApi.Services
             return _unityOfRepository._userRepository.GiveRole(role_Model);
 
         }
+
+        public int ChangePassword(string userid, string pwd)
+        {
+            return _unityOfRepository._userRepository.ChangePassword(userid, pwd);
+        }
     }
 }

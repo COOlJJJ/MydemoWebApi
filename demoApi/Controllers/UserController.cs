@@ -4,6 +4,8 @@ using demoApi.Model.User;
 using demoApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -143,6 +145,41 @@ namespace demoApi.Controllers
                 };
             }
         }
+
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="user_Model"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("ChangePassword")]
+        public MessageModel<string> ChangePassword(dynamic obj)
+        {
+            string token = HttpContext.Request.Headers["Authorization"].ToString().Split(' ')[1];
+            string userid = JwtHelper.SerializeJwt(token).ID;
+            dynamic objdyn = JsonConvert.DeserializeObject(Convert.ToString(obj));
+            string pwd = MD5Hepler.MD5Encrypt32(Convert.ToString(objdyn.newpwd));
+            int result = _unityOfServices._userServices.ChangePassword(userid, pwd);
+            if (result > 0)
+            {
+                return new MessageModel<string>
+                {
+                    msg = "修改密码成功",
+                    status = 200,
+                    response = string.Empty
+                };
+            }
+            else
+            {
+                return new MessageModel<string>
+                {
+                    msg = "修改密码失败",
+                    status = 201,
+                    response = string.Empty
+                };
+            }
+        }
+
 
         /// <summary>
         /// 编辑用户信息

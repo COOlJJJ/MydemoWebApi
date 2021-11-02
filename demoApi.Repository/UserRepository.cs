@@ -73,6 +73,13 @@ namespace demoApi.Repository
             }
         }
 
+        public int ChangePassword(string userid, string pwd)
+        {
+            using IDbConnection connection = new SqlConnection(connStr);
+            return connection.Execute($"update [User] set Password='{pwd}' where ID={userid}");
+
+        }
+
         /// <summary>
         /// 编辑用户信息
         /// </summary>

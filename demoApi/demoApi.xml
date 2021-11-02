@@ -140,6 +140,13 @@
             <param name="user_Model"></param>
             <returns></returns>
         </member>
+        <member name="M:demoApi.Controllers.UserController.ChangePassword(System.Object)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="user_Model"></param>
+            <returns></returns>
+        </member>
         <member name="M:demoApi.Controllers.UserController.EditUser(demoApi.Model.User.EditUser_Model)">
             <summary>
             编辑用户信息
